@@ -2,11 +2,11 @@ import React from "react";
 import { UilGithub, UilLinkedin } from "@iconscout/react-unicons";
 const Home = () => {
   return (
-    <div className="w-full h-screen flex items-center justify-center space-y-4 md:space-y-12 flex-col">
-      <h1 className="text-6xl mb-12 font-pokemon font-semibold text-red-500 text-fill-black ">
+    <div className="w-full h-full lg:h-screen flex items-center justify-center space-y-4 md:space-y-12 flex-col">
+      <h1 className="text-4xl lg:text-6xl mb-4 lg:mb-12 font-pokemon font-medium lg:font-semibold text-red-500 text-fill-black ">
         PoKeMoN
       </h1>
-      <h3 className="text-3xl font-piksel font-medium text-black">
+      <h3 className="text-lg lg:text-3xl font-piksel lg:font-medium text-black">
         Select A Pokemon And See...
       </h3>
       <p className="font-piksel font-light text-xs mt-6 ">
