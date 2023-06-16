@@ -3,9 +3,10 @@ import axios from "axios";
 
 export const fetchPokemonsAsync = createAsyncThunk(
   "/pokemon/fetchPokemonsAsync",
-  async () => {
+  async (currentPage) => {
+    const currentOffset = currentPage * 30;
     const res = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon?offset=0&limit=30"
+      `https://pokeapi.co/api/v2/pokemon?offset=${currentOffset}&limit=30`
     );
     return res.data;
   }
@@ -25,6 +26,7 @@ export const PokemonSlice = createSlice({
     pokemons: [],
     isLoading: false,
     error: null,
+    page: 0,
     currentPokemon: [],
     currentLoading: false,
   },
@@ -32,11 +34,12 @@ export const PokemonSlice = createSlice({
     //all pokemons
     [fetchPokemonsAsync.pending]: (state, action) => {
       state.isLoading = true;
+      state.page = state.page + 1;
     },
     [fetchPokemonsAsync.fulfilled]: (state, action) => {
-      state.pokemons = action.payload;
-      console.log(action.payload);
+      state.pokemons = [...state.pokemons, ...action.payload.results];
       state.isLoading = false;
+      console.log(state.pokemons);
     },
     [fetchPokemonsAsync.rejected]: (state, action) => {
       state.error = action.error.message;

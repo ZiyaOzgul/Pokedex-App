@@ -12,10 +12,12 @@ import PokemonPage from "./pages/PokemonPage";
 function App() {
   const dispatch = useDispatch();
   const allPokemons = useSelector(Pokemons);
-  useEffect(() => {
-    dispatch(fetchPokemonsAsync());
-  }, [dispatch]);
+  const currentPage = useSelector((state) => state.pokemon.page);
 
+  useEffect(() => {
+    dispatch(fetchPokemonsAsync(currentPage));
+  }, [dispatch]);
+  const page = currentPage - 1;
   return (
     <div className="w-full h-screen flex  items-center justify-start bg-gradient-to-br from-yellow-100 to-amber-200">
       <nav className="w-3/5 h-screen flex items-center justify-start space-y-6 flex-col  ">
@@ -26,13 +28,16 @@ function App() {
           <h1 className="font-bold text-6xl font-piksel"> Loading ...</h1>
         ) : (
           <div className="w-full h-auto  overflow-x-hidden grid grid-cols-3 gap-4 px-4">
-            {allPokemons.results.map((item, key) => (
-              <Link to={`/pokemon/${key + 1}`}>
+            {allPokemons.map((item, key) => (
+              <Link to={`/pokemon/${key}`} key={key}>
                 <div
-                  key={key}
                   className="font-piksel flex items-center justify-evenly space-x-4 w-80 h-20 rounded-2xl bg-sky-400 border border-black group hover:bg-sky-300 ease-in-out duration-500"
                   onClick={() => {
-                    dispatch(fetchCurrentPokemonAsync({ id: key + 1 }));
+                    dispatch(
+                      fetchCurrentPokemonAsync({
+                        id: key + 1,
+                      })
+                    );
                   }}
                 >
                   <p className="font-medium text-sm px-2 py-2">{key + 1}</p>
@@ -49,6 +54,12 @@ function App() {
                 </div>
               </Link>
             ))}
+            <p
+              className="flex items-center justify-center font-piksel cursor-pointer hover:scale-105 duration-500 ease-in-out "
+              onClick={() => dispatch(fetchPokemonsAsync(currentPage))}
+            >
+              Load More ...
+            </p>
           </div>
         )}
       </nav>

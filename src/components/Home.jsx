@@ -14,13 +14,13 @@ const Home = () => {
       </p>
       <div className="flex items-center justify-evenly space-x-4">
         <a href="https://github.com/ZiyaOzgul" target="_blank">
-          <UilGithub className="w-10 h-10 font-piksel text-gray-600"></UilGithub>
+          <UilGithub className="w-10 h-10 font-piksel text-gray-600 hover:scale-110 ease-in-out duration-500 "></UilGithub>
         </a>
         <a
           href="https://www.linkedin.com/in/ziya-%C3%B6zg%C3%BCl-93816a260"
           target="_blank"
         >
-          <UilLinkedin className="w-10 h-10 font-piksel text-blue-600"></UilLinkedin>
+          <UilLinkedin className="w-10 h-10 font-piksel text-blue-600 hover:scale-110 ease-in-out duration-500"></UilLinkedin>
         </a>
       </div>
     </div>
