@@ -5,8 +5,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Product Name Screen Shot](https://github.com/ZiyaOzgul/Pokedex-App/tree/master/src/img/Poke-1.png)
-![Product Name Screen Shot](https://github.com/ZiyaOzgul/Pokedex-App/tree/master/src/img/Poke-2.png)
+![Product Name Screen Shot](https://github.com//ZiyaOzgul/Pokedex-App/blob/master/src/img/Poke-1.png)
+![Product Name Screen Shot](https://github.com//ZiyaOzgul/Pokedex-App/blob/master/src/img/Poke-2.png)
 
 
 
